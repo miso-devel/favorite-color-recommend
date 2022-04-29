@@ -20,7 +20,7 @@
         "lint": "eslint --ext .jsx,.js,.tsx,.ts src/",
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "npm run lint && jest",
+        "test": "jest",
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
@@ -47,6 +47,8 @@
         "eslint": "^8.14.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-react": "^7.29.4",
-        "prettier": "^2.6.2"
+        "jest": "^27.0.0",
+        "prettier": "^2.6.2",
+        "ts-jest": "^27.1.4"
     }
 }
