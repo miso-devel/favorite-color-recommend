@@ -7,7 +7,7 @@ const App = () => {
     return (
         <div className="App">
             <img src={logo} className="App-logo" alt="logo" />
-            <p>reacttt</p>
+            <p>App component</p>
             <Color />
         </div>
     )
