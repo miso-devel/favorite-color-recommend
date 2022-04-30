@@ -1,12 +1,14 @@
 import React from 'react'
 import logo from './logo.svg'
+import { Color } from './components/Color'
 import './App.css'
 
-function App() {
+const App = () => {
     return (
         <div className="App">
             <img src={logo} className="App-logo" alt="logo" />
             <p>reacttt</p>
+            <Color />
         </div>
     )
 }
