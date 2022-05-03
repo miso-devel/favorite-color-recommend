@@ -1,25 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
 // sliceファイルはstateを更新するためのファイル
+import type { RootState } from './store'
 
 export const counterSlice = createSlice({
     name: 'counter',
     initialState: {
         count: 0,
     },
-    // ここのactionって何に使ってるん？
     reducers: {
-        additional: (state, action) => {
-            console.log(state.count, action.payload)
-            if (Number.isNaN(action.payload)) return
-            state.count += action.payload
+        additional: (state) => {
+            state.count += 1
         },
-        subtraction: (state, action) => {
-            console.log(state.count, action.payload)
-            if (Number.isNaN(action.payload)) return
-            state.count -= action.payload
+        subtraction: (state) => {
+            state.count -= 1
         },
     },
 })
-
+// actionsはreducerに定義したstateを更新するためのdispatchの役割をh果たす。
 export const { additional, subtraction } = counterSlice.actions
+console.log(additional())
+console.log(counterSlice.actions)
+
+export const selectCount = (state: RootState) => state.counter.count
+
 export default counterSlice.reducer
