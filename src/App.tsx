@@ -1,14 +1,18 @@
 import React from 'react'
-import logo from './logo.svg'
 import { Color } from './components/Color'
+import { ColorList } from './components/ColorList'
 import './App.css'
 
 const App = () => {
     return (
         <div className="App">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>App component</p>
-            <Color />
+            <p className=" font-extrabold text-center text-4xl my-10">
+                Color Recommender
+            </p>
+            <div className="">
+                <ColorList />
+                <Color />
+            </div>
         </div>
     )
 }

@@ -10,6 +10,6 @@ test('renders learn react link', () => {
             <App />
         </Provider>
     )
-    const linkElement = screen.getByText('App component')
+    const linkElement = screen.getByText('Color Recommender')
     expect(linkElement).toBeInTheDocument()
 })
