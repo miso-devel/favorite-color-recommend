@@ -5,14 +5,20 @@ export const Form = () => {
 
     return (
         <div className="App">
-            <h1>Count: {count}</h1>
-            <h1>
+            <p className="font-extrabold text-3xl py-5">Count: {count}</p>
+            <div className="mx-20 grid grid-cols-5">
                 {color.map((n, i) => {
-                    return <p key={i}>{n}</p>
+                    return (
+                        <div
+                            className="h-10"
+                            style={{
+                                backgroundColor: `rgb(${n[0]},${n[1]},${n[2]})`,
+                            }}
+                            key={i}
+                        ></div>
+                    )
                 })}
-            </h1>
-            {/* typeはcounter/additionalとして送られる */}
-            {/* <button onClick={() => dispatch(additional())}>Up</button> */}
+            </div>
         </div>
     )
 }

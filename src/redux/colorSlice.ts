@@ -4,19 +4,69 @@ import axios from 'axios'
 import type { RootState } from './store'
 
 type State = {
-    color: number[]
+    color: number[][]
+    result: {
+        XYZ: {
+            value: string
+        }
+        cmyk: {
+            value: string
+        }
+        hsv: {
+            value: string
+        }
+        hex: {
+            value: string
+        }
+        name: {
+            value: string
+        }
+        hsl: {
+            value: string
+        }
+        rgb: {
+            value: string
+        }
+    }
 }
 const initialState: State = {
     color: [],
+    result: {
+        XYZ: {
+            value: '',
+        },
+        cmyk: {
+            value: '',
+        },
+        hsv: {
+            value: '',
+        },
+        hex: {
+            value: '',
+        },
+        name: {
+            value: '',
+        },
+        hsl: {
+            value: '',
+        },
+        rgb: {
+            value: '',
+        },
+    },
 }
 // 非同期処理
 // API取得
-export const fetchColorGet = createAsyncThunk('fetch/get', async () => {
-    const res = await axios.get(
-        'https://www.thecolorapi.com/id?rgb=rgb(0,71,171)'
-    )
-    return res.data.rgb
-})
+export const fetchResultColor = createAsyncThunk(
+    'fetch/get',
+    async (state: number[]) => {
+        const res = await axios.get(
+            `https://www.thecolorapi.com/id?rgb=rgb(${state[0]},${state[1]},${state[2]})`
+        )
+        console.log('fetch')
+        return res.data
+    }
+)
 
 export const colorSlice = createSlice({
     name: 'colors',
@@ -26,15 +76,14 @@ export const colorSlice = createSlice({
             state.color = [...state.color, action.payload]
         },
     },
-    // extraReducers: (builder) => {
-    //     console.log(builder)
-    //     builder.addCase(fetchColorGet.fulfilled, (state, action) => {
-    //         state.apis = [...state.apis, action.payload]
-    //     })
-    //     builder.addCase(fetchColorGet.rejected, (state) => {
-    //         console.log('sippai')
-    //     })
-    // },
+    extraReducers: (builder) => {
+        builder.addCase(fetchResultColor.fulfilled, (state, action) => {
+            state.result = action.payload
+        })
+        builder.addCase(fetchResultColor.rejected, (state) => {
+            console.log('sippai')
+        })
+    },
 })
 
 // actionsはreducerに定義したstateを更新するためのdispatchの役割をh果たす。

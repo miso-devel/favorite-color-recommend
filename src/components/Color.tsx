@@ -13,9 +13,7 @@ export const Color = ({ bg }: any) => {
             <div
                 className=" h-40 rounded-lg flex justify-center items-center"
                 style={{ backgroundColor: `rgb(${bg[0]},${bg[1]},${bg[2]})` }}
-            >
-                <p className="p-5 bg-white rounded-lg">{bg}</p>
-            </div>
+            ></div>
         </button>
     )
 }
