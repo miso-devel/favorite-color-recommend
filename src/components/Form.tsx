@@ -1,13 +1,8 @@
-import { useAppSelector, useAppDispatch } from '../redux/hooks'
-import { additional, subtraction } from '../redux/counterSlice'
-import { toRed, toBlue, fetchColorGet } from '../redux/colorSlice'
+import { useAppSelector } from '../redux/hooks'
 export const Form = () => {
     const count = useAppSelector((state) => state.counter.count)
-    const color = useAppSelector((state) => state.colorChecker.color)
-    const apis = useAppSelector((state) => state.colorChecker.apis)
-    const dispatch = useAppDispatch()
+    const color = useAppSelector((state) => state.colors.color)
 
-    console.log(apis)
     return (
         <div className="App">
             <h1>Count: {count}</h1>
@@ -17,11 +12,7 @@ export const Form = () => {
                 })}
             </h1>
             {/* typeはcounter/additionalとして送られる */}
-            <button onClick={() => dispatch(additional())}>Up</button>
-            <button onClick={() => dispatch(subtraction())}>Down</button>
-            <button onClick={() => dispatch(toBlue())}>toBlue</button>
-            <button onClick={() => dispatch(toRed())}>toRed</button>
-            <button onClick={() => dispatch(fetchColorGet())}>fetch API</button>
+            {/* <button onClick={() => dispatch(additional())}>Up</button> */}
         </div>
     )
 }

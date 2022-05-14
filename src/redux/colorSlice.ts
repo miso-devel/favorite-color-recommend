@@ -4,12 +4,10 @@ import axios from 'axios'
 import type { RootState } from './store'
 
 type State = {
-    color: string[]
-    apis: any[]
+    color: number[]
 }
 const initialState: State = {
-    color: ['pink', 'aa'],
-    apis: [],
+    color: [],
 }
 // 非同期処理
 // API取得
@@ -21,31 +19,28 @@ export const fetchColorGet = createAsyncThunk('fetch/get', async () => {
 })
 
 export const colorSlice = createSlice({
-    name: 'color',
+    name: 'colors',
     initialState,
     reducers: {
-        toRed: (state) => {
-            state.color = [...state.color, 'red']
-        },
-        toBlue: (state) => {
-            state.color = [...state.color, 'blue']
+        addColor: (state, action) => {
+            state.color = [...state.color, action.payload]
         },
     },
-    extraReducers: (builder) => {
-        console.log(builder)
-        builder.addCase(fetchColorGet.fulfilled, (state, action) => {
-            state.apis = [...state.apis, action.payload]
-        })
-        builder.addCase(fetchColorGet.rejected, (state) => {
-            console.log('sippai')
-        })
-    },
+    // extraReducers: (builder) => {
+    //     console.log(builder)
+    //     builder.addCase(fetchColorGet.fulfilled, (state, action) => {
+    //         state.apis = [...state.apis, action.payload]
+    //     })
+    //     builder.addCase(fetchColorGet.rejected, (state) => {
+    //         console.log('sippai')
+    //     })
+    // },
 })
 
 // actionsはreducerに定義したstateを更新するためのdispatchの役割をh果たす。
-export const { toRed, toBlue } = colorSlice.actions
+export const { addColor } = colorSlice.actions
 // RootStateで全てのstateが見れる
 // ここのcolorCheckerはstoreで定義されてないと使えない
-export const selectColor = (state: RootState) => state.colorChecker.color
+export const selectColor = (state: RootState) => state.colors.color
 
 export default colorSlice.reducer

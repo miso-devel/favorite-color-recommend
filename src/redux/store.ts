@@ -10,7 +10,7 @@ import colorReducer from './colorSlice'
 export const store = configureStore({
     reducer: {
         counter: counterReducer,
-        colorChecker: colorReducer,
+        colors: colorReducer,
     },
 })
 
