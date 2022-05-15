@@ -11,9 +11,12 @@ export const counterSlice = createSlice({
         additional: (state) => {
             state.count += 1
         },
+        skip: (state) => {
+            state.count += 1
+        },
     },
 })
 // actionsはreducerに定義したstateを更新するためのdispatchの役割をh果たす。
-export const { additional } = counterSlice.actions
+export const { additional, skip } = counterSlice.actions
 export const selectCount = (state: RootState) => state.counter.count
 export default counterSlice.reducer

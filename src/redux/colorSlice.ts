@@ -63,7 +63,6 @@ export const fetchResultColor = createAsyncThunk(
         const res = await axios.get(
             `https://www.thecolorapi.com/id?rgb=rgb(${state[0]},${state[1]},${state[2]})`
         )
-        console.log('fetch')
         return res.data
     }
 )
@@ -80,8 +79,8 @@ export const colorSlice = createSlice({
         builder.addCase(fetchResultColor.fulfilled, (state, action) => {
             state.result = action.payload
         })
-        builder.addCase(fetchResultColor.rejected, (state) => {
-            console.log('sippai')
+        builder.addCase(fetchResultColor.rejected, () => {
+            console.log('失敗')
         })
     },
 })

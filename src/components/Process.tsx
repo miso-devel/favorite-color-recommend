@@ -1,5 +1,5 @@
 import { useAppSelector } from '../redux/hooks'
-export const Form = () => {
+export const Process = () => {
     const count = useAppSelector((state) => state.counter.count)
     const color = useAppSelector((state) => state.colors.color)
 

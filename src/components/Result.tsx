@@ -1,4 +1,5 @@
 import { useAppSelector, useAppDispatch } from '../redux/hooks'
+import { Process } from './Process'
 import { CalcResult } from '../methods/CalcResult'
 import { fetchResultColor } from '../redux/colorSlice'
 import { useEffect } from 'react'
@@ -17,6 +18,8 @@ export const Result = () => {
     }
     return (
         <div className="App">
+            <Process />
+
             <p className=" font-bold text-3xl my-10">Result</p>
 
             <div
@@ -30,7 +33,7 @@ export const Result = () => {
                 </p>
             </div>
 
-            <div className=" grid grid-cols-3 mx-10 my-5 gap-5">
+            <div className=" grid lg:grid-cols-3 grid-cols-1 mx-10 my-5 gap-5">
                 <p className=" shadow-lg p-5">{apiResult.XYZ.value}</p>
                 <p className=" shadow-lg p-5">{apiResult.cmyk.value}</p>
                 <p className=" shadow-lg p-5">{apiResult.hsv.value}</p>
