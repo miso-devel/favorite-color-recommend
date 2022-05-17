@@ -1,7 +1,8 @@
 import '../assets/About.css'
 export const About = () => {
+    console.log('about')
     return (
-        <div>
+        <div className="my-16 lg:mx-0 md:mx-16 sm:mx-3">
             <p className=" text-3xl font-bold my-10">About</p>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                 <div className=" p-10 shadow-2xl lg:col-start-2">

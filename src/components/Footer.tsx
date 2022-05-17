@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
-export const Footer = () => {
+import { memo } from 'react'
+// eslint-disable-next-line react/display-name
+export const Footer = memo(() => {
     return (
         <div className=" py-5 text-right">
             <div>
@@ -12,4 +14,4 @@ export const Footer = () => {
             </div>
         </div>
     )
-}
+})
