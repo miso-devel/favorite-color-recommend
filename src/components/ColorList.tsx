@@ -1,6 +1,6 @@
 import { Color } from './Color'
 import { Process } from './Process'
-import { RandomColor } from '../methods/RandomColor'
+import { RandomColor } from '../util/RandomColor'
 import { useAppDispatch } from '../redux/hooks'
 import { skip } from '../redux/counterSlice'
 export const ColorList = () => {

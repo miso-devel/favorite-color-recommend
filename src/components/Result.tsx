@@ -1,6 +1,6 @@
 import { useAppSelector, useAppDispatch } from '../redux/hooks'
 import { Process } from './Process'
-import { CalcResult } from '../methods/CalcResult'
+import { CalcResult } from '../util/CalcResult'
 import { fetchResultColor } from '../redux/colorSlice'
 import { useEffect } from 'react'
 export const Result = () => {

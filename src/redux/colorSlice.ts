@@ -3,32 +3,17 @@ import axios from 'axios'
 // sliceファイルはstateを更新するためのファイル
 import type { RootState } from './store'
 
+const colorModels = ['XYZ', 'cmyk', 'hsv', 'hex', 'name', 'hsl', 'rgb'] as const
+type colorModel = typeof colorModels[number]
 type State = {
     color: number[][]
     result: {
-        XYZ: {
-            value: string
-        }
-        cmyk: {
-            value: string
-        }
-        hsv: {
-            value: string
-        }
-        hex: {
-            value: string
-        }
-        name: {
-            value: string
-        }
-        hsl: {
-            value: string
-        }
-        rgb: {
+        [C in colorModel]: {
             value: string
         }
     }
 }
+
 const initialState: State = {
     color: [],
     result: {

@@ -3,7 +3,7 @@ export const CalcResult = (colors: number[][]) => {
     let g = 0
     let b = 0
     const l = colors.length
-    colors.map((c: number[]) => {
+    colors.forEach((c: number[]) => {
         r += c[0]
         g += c[1]
         b += c[2]
