@@ -1,6 +1,5 @@
 import '../assets/About.css'
 export const About = () => {
-    console.log('about')
     return (
         <div className="my-16 lg:mx-0 md:mx-16 sm:mx-3">
             <p className=" text-3xl font-bold my-10">About</p>
@@ -8,6 +7,9 @@ export const About = () => {
                 <div className=" p-10 shadow-2xl lg:col-start-2">
                     <p className="font-medium">
                         Color Recommenderは好きな色を見つけるwebサービスです
+                    </p>
+                    <p className="font-medium">
+                        （選択した５色の平均値を取り結果を表示しています）
                     </p>
                     <div className="grid grid-cols-3">
                         <a
