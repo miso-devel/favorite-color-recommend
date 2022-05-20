@@ -5,14 +5,16 @@ import type { RootState } from './store'
 
 const colorModels = ['XYZ', 'cmyk', 'hsv', 'hex', 'name', 'hsl', 'rgb'] as const
 type colorModel = typeof colorModels[number]
-type State = {
-    color: number[][]
+type apiResponse = {
     result: {
         [C in colorModel]: {
             value: string
         }
     }
 }
+type State = {
+    color: number[][]
+} & apiResponse
 
 const initialState: State = {
     color: [],
