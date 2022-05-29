@@ -1,3 +1,7 @@
+export const GenerateRandomNumber = () => {
+    return Math.random()
+}
+
 export const RandomColor = () => {
     const MIN = 0
     const MAX = 255
@@ -6,7 +10,7 @@ export const RandomColor = () => {
     for (let t = 0; t < 4; t++) {
         const c = []
         for (let i = 0; i < 3; i++) {
-            const color: number = Math.random()
+            const color: number = GenerateRandomNumber()
             c.push(Math.floor(color * (MAX - MIN)) + MIN)
         }
         rgb.push(c)
